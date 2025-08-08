@@ -13,5 +13,5 @@ Decisão
 
 Consequências
 - Escala horizontal por serviço é simples.
-- Fácil troca de provedores LLM no `nl-query`.
+- Fácil troca de provedores LLM no `askadb-nl-query`.
 
