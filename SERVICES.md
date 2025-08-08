@@ -1,13 +1,17 @@
 Serviços e Portas
 
 - askadb-orchestrator-api: 8000
-  - POST /query
+  - POST /
 
 - askadb-nl-query: 8001
-  - POST /translate/
+  - POST /translate
 
 - askadb-query-engine: 8002
-  - POST /execute/
+  - POST /execute
+  - POST /health
 
-- askadb-ui: 5173 (dev) / 80 (Docker)
+- askadb-dashboard-core: 8003
+  - POST /suggest
+
+- askadb-ui: 3000 (Docker)
 
