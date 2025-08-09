@@ -1,14 +1,15 @@
 Fluxo de Dados
 
 1. Ingestão
-- `askadb-pipeline-ingest` coleta dados (CSV/JSON/APIs) e grava em `askadb-query-engine/data`.
+- `askadb-pipeline-ingest` coleta dados (CSV/JSON/APIs) e grava em `askadb-query-engine/data` (SQLite).
 
 2. Tradução NL → Query
-- `askadb-nl-query` recebe pergunta em linguagem natural e retorna uma query (SQL ou AST).
+- `askadb-nl-query` recebe pergunta em linguagem natural e retorna SQL (via OpenAI SDK).
 
-3. Execução
-- `askadb-query-engine` executa a query sobre os dados locais (DuckDB) e retorna resultados.
+3. Orquestração e Execução
+- `askadb-orchestrator-api` chama `askadb-nl-query` (gera SQL) e depois `askadb-query-engine` (executa em SQLite) e agrega metadados.
 
 4. Visualização
-- `askadb-ui` renderiza tabelas e gráficos; `askadb-dashboard-core` pode sugerir visualizações.
+- `askadb-dashboard-core` sugere visualizações (auto-charting) e retorna sugestões ao Orchestrator.
+- `askadb-ui` (porta 3000) renderiza resultados, dashboard sugerido e sugestões de próximas análises.
 
